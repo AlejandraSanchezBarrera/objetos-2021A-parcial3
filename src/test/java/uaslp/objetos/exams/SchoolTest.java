@@ -1,5 +1,6 @@
 package uaslp.objetos.exams;
 
+import clases_excepciones.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -28,7 +29,7 @@ public class SchoolTest {
     }
 
     @Test
-    public void givenGroupWithCapacity3With3Students_whenGetAvailability_thenReturnZero() {
+    public void givenGroupWithCapacity3With3Students_whenGetAvailability_thenReturnZero() throws GroupIsFullException {
         // Given:
         Group group = new Group(3);
 
@@ -61,7 +62,7 @@ public class SchoolTest {
     }
 
     @Test
-    public void givenGroupWithCapacity3With3Students_whenAddAFourthStudent_thenGroupIsFullException() {
+    public void givenGroupWithCapacity3With3Students_whenAddAFourthStudent_thenGroupIsFullException() throws GroupIsFullException {
         // Given:
         Group group = new Group(3);
 
@@ -74,7 +75,7 @@ public class SchoolTest {
     }
 
     @Test
-    public void givenScoresPerPartial_whenAverageIsRequested_thenAverageIsCorrect() throws InvalidPartialException {
+    public void givenScoresPerPartial_whenAverageIsRequested_thenAverageIsCorrect() throws InvalidPartialException, MissingScoreException {
         // Given:
         Student lucia = new Student("Lucia López", 413231);
 
@@ -114,7 +115,7 @@ public class SchoolTest {
     }
 
     @Test
-    public void whenGetGroupAverage_thenAverageIsReturned() {
+    public void whenGetGroupAverage_thenAverageIsReturned() throws MissingScoreException, GroupIsFullException {
         // Given:
         Student lucia = Mockito.mock(Student.class);
         Student mario = Mockito.mock(Student.class);

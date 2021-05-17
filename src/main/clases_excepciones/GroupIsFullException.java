@@ -1,5 +1,5 @@
-package uaslp.objetos.exams;
+package clases_excepciones;
 
-public class GroupIsFullException extends Throwable {
+public class GroupIsFullException extends Exception {
 
 }

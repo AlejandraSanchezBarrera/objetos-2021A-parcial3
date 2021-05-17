@@ -1,4 +1,4 @@
-package uaslp.objetos.exams;
+package clases_excepciones;
 
-public class InvalidPartialException extends Throwable {
+public class InvalidPartialException extends Exception {
 }
